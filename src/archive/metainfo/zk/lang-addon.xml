@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<language-addon>
+	<addon-name>spinningwheel</addon-name> <!-- required -->
+
+ 	<version>
+		<version-class>org.zkoss.mobile.Version</version-class>
+		<version-uid>0.8.0</version-uid>
+		<zk-version>5.0.0</zk-version><!-- or later -->
+	</version>
+
+	<language-name>xul/html</language-name>
+	<component>
+		<component-name>spinwheel</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Spinwheel</component-class> <!-- required -->
+		<widget-class>mob.Spinwheel</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/spinwheel.js</mold-uri>
+			<css-uri>css/spinwheel.css.dsp</css-uri>
+		</mold>
+	</component>
+	
+	<component>
+		<component-name>slot</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Slot</component-class> <!-- required -->
+		<widget-class>mob.Slot</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/slot.js</mold-uri>
+		</mold>
+	</component>
+</language-addon>
