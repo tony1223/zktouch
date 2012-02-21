@@ -69,7 +69,7 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 			}
 		}
 	},
-	_moveTo:function(newtop){
+	moveTo_:function(newtop){
 		var  n = this.$n("body"), 
 		toplimit = n.scrollHeight - 150 ,
 		nowpos = this.getPosition(); //215 from parent
@@ -82,12 +82,6 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 			var diff = this.rendererPrev();
 			this.setPosition(newtop + diff + 5 );
 		}
-	},
-	_doTouchMove: function (e){
-		this._moveTo(this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 );	
-	},
-	_doTouchEnd: function (e){
-		jq(document).unbind("touchstart");
 	},
 	unbind_: function () {
 		this.$supers(mob.Spinwheel,'unbind_', arguments);

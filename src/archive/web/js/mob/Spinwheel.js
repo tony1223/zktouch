@@ -6,6 +6,10 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
     _startY: null,
 	_startScrollY: null,
     _pos:null , //cached properties
+    _timer:null,
+    _scrollV:null,
+    _recordCount:10,
+    _lastplist:[],
 	$define: {
 	},
 	bind_: function () {
@@ -31,7 +35,6 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
 	},
 	moveTo_:function(newtop){
 		var  n = this.$n("body"), 
-		newtop = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 ,
 		toplimit = n.scrollHeight - 150 ; //215 from parent
 	
 		if(newtop >= toplimit){  //up bound
@@ -47,22 +50,71 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
 	_getFirstTouch: function (e){
 		return e.domEvent.originalEvent.targetTouches[0];
 	},
+	_stopMoving: function(){
+		if(this._timer) {
+			window.clearInterval(this._timer);
+			this._timer = null;
+		}
+	},
+	_startMoving: function (v){
+		this._stopMoving();
+		var wgt = this;
+		wgt._scrollV = v;
+		this._timer = window.setInterval(function(){
+			wgt._countSpeed();
+			if(wgt._scrollV != 0 ){
+				wgt.moveTo_(wgt.getPosition() + wgt._scrollV);
+			}else{
+				window.clearInterval(wgt._timer);
+				wgt._timer = null;
+			}
+		},50);
+	},
+	_countSpeed: function(){
+		this._scrollV = this._scrollV * 0.90;
+		if(parseInt(this._scrollV * 10 , 10) == 0 ){
+			this._scrollV = 0 ;
+		}
+		
+	},	
 	_doTouchStart: function (e){
+		this._stopMoving();
 		this._startY = this._getFirstTouch(e).pageY;
 		this._startScrollY = this.getPosition();
 		jq(document).bind("touchstart",function(){
 			return false;
-		});		
+		});
+		this._lastplist[0] = {y:this.getPosition(), t:new Date().getTime()};
+		this.n = 0 ;
 	},
 	_doTouchMove: function (e){
-		this.moveTo_((this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 ));
+		var y = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY)  ; 
+		this.moveTo_(y);
+		for(var i = 0 ,len = this._recordCount - 1; i < len  ;++i){
+			if(this._lastplist[i])
+				this._lastplist[i + 1 ] = this._lastplist[i];
+			else break;
+		}
+		this._lastplist[0] = {y:y, t:new Date().getTime()};
+		this.n++;
 	},
 	_doTouchEnd: function (e){
+		zk.log("times",this.n);
 		jq(document).unbind("touchstart");
-	},
-	lockScreen: function (e) {
-		e.preventDefault();
-		e.stopPropagation();
+		if(this._lastplist[1]){
+			var y1,y2 ;
+			y1 = this._lastplist[0];
+			for(var i = this._recordCount; i > 0 ;--i){
+				if(this._lastplist[i]){
+					y2 = this._lastplist[i];
+					break;
+				}
+			}			
+			var ms = (y1.t - y2.t) ;
+			var pxs = (y1.y - y2.y);
+			v = pxs/ms;
+			this._startMoving(v *30 );
+		}
 	},
 	/*
 	  A example for domListen_ listener.
