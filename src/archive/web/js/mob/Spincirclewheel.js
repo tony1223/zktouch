@@ -89,10 +89,6 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 	_doTouchEnd: function (e){
 		jq(document).unbind("touchstart");
 	},
-	lockScreen: function (e) {
-		e.preventDefault();
-		e.stopPropagation();
-	},
 	unbind_: function () {
 		this.$supers(mob.Spinwheel,'unbind_', arguments);
 	},
