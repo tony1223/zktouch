@@ -6,13 +6,14 @@ function (out) {
 	var zcls = this.getZclass(),
 		uuid = this.uuid,
 		opt = this._options,
-		len = opt.length < this._viewsize ? opt.length : this._viewsize;
+		optlen = opt.length,
+		len = this._viewsize;
 
 	out.push('<div ', this.domAttrs_(), '><ul id="',uuid,'-body" class="',zcls,'-body">');
 	
 	if(opt != null){
 		for(var i = 0 ; i < len ;++i){
-			out.push('<li>',opt[i],"</li>");
+			out.push('<li>',opt[ i % optlen ],"</li>");
 		}
 	}
 	out.push('</ul></div>');
