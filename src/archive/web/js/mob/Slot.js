@@ -2,8 +2,6 @@
  * 20120217 1718
  */
 mob.Slot = zk.$extends(zk.Widget, {
-    _touching:false,
-    _startY:0,
     _currentTouchWheel:null,
 	$define: {
 	},
@@ -26,12 +24,11 @@ mob.Slot = zk.$extends(zk.Widget, {
 		var x = this._getFirstTouch(e).pageX ;
 		this._currentTouchWheel = null;
 		
-		var wheels = jq("@spinwheel",this);
+		var wheels = jq(this.$n("body")).children();
 		if(wheels.length <= 1 ){
 			this._currentTouchWheel = zk.Widget.$(wheels[0]);
 		}else{
 			var left = wheels.eq(0).offset().left;
-			zk.log(x,left);
 			if(x < left ) return true;
 			
 			for(var k = 0 ,len = wheels.length; k < len ;++k){
@@ -66,8 +63,10 @@ mob.Slot = zk.$extends(zk.Widget, {
 	},
 	*/
 	unbind_: function () {
-
-		// this.domUnlisten_(this.$n("cave"), "onClick", "_doItemsClick");
+		var node = this.$n("frame");
+		this.domUnlisten_( node, "onTouchstart", "_doTouchStart");
+		this.domUnlisten_( node, "onTouchmove", "_doTouchMove");
+		this.domUnlisten_( node, "onTouchend", "_doTouchEnd");
 		this.$supers(mob.Slot,'unbind_', arguments);
 	},
 	getZclass: function () {

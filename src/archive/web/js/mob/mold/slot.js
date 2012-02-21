@@ -11,7 +11,7 @@ function (out) {
 	
 	out.push('<div class="',zcls,'-cave">');
 	
-	out.push('<div class="',zcls,'-body">');
+	out.push('<div class="',zcls,'-body" id="',uuid,'-body">');
 	for (var w = this.firstChild; w; w = w.nextSibling)
 		w.redraw(out);
 	out.push('</div>');

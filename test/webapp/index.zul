@@ -1,7 +1,6 @@
 <zk>
 	<slot>
-		<spinwheel />
-		<spinwheel />
+		<spincirclewheel />
 		<spinwheel />
 	</slot>
 </zk>

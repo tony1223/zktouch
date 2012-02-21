@@ -22,6 +22,16 @@
 	</component>
 	
 	<component>
+		<component-name>spincirclewheel</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Spincirclewheel</component-class> <!-- required -->
+		<widget-class>mob.Spincirclewheel</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/spincirclewheel.js</mold-uri>
+		</mold>
+	</component>
+	
+	<component>
 		<component-name>slot</component-name> <!-- required -->
 		<component-class>org.zkoss.mobile.Slot</component-class> <!-- required -->
 		<widget-class>mob.Slot</widget-class> <!-- required -->

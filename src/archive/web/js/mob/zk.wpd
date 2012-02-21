@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <package name="mob" language="xul/html">
-
-
-	<widget name="Spinwheel" />
 	<widget name="Slot" />
+	<widget name="Spinwheel" />
+	<widget name="Spincirclewheel" />
 </package>

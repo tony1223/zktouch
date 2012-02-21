@@ -3,20 +3,17 @@
  */
 mob.Spinwheel = zk.$extends(zk.Widget, {
     _options:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], //default value for text attribute
+    _startY: null,
+	_startScrollY: null,
 	$define: {
 	},
 	bind_: function () {
 		this.$supers(mob.Spinwheel,'bind_', arguments);
-
-		//A example for domListen_ , REMEMBER to do domUnlisten in unbind_.
-		//this.domListen_(this.$n("cave"), "onClick", "_doItemsClick");
-		
-		var node = this.$n("body");
-		
 	},
 	setPosition: function (top){
 		if(this.desktop){
 			jq(this.$n("body")).css("top",(top * - 1)+"px");
+//			zk.log("setPosition",top);
 		}
 	},
 	getPosition: function(){
