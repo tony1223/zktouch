@@ -46,7 +46,7 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 			optlen = this._options.length,
 			childtar = $body.find("li:nth-child("+(this._viewsize - diffItems +1 )+")"),
 			lastchild = $body.find("li:last"),
-			diff = (lastchild.position().top + lastchild.height() ) - childtar.position().top  , 
+			diff = (lastchild.position().top ) - childtar.position().top , 
 			nexts = childtar.nextAll();
 		nexts.hide();
 	
@@ -69,15 +69,12 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 			}
 		}
 	},
-	_doTouchMove: function (e){
+	_moveTo:function(newtop){
 		var  n = this.$n("body"), 
-		newtop = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 ,
 		toplimit = n.scrollHeight - 150 ,
 		nowpos = this.getPosition(); //215 from parent
 		
 		this.setPosition(newtop);
-		
-		
 		if( nowpos > toplimit - 250  ){ // Note we have to change startScrollY as well
 			var diff = this.rendererNext();
 			this.setPosition(newtop - diff + 5 );
@@ -85,16 +82,12 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 			var diff = this.rendererPrev();
 			this.setPosition(newtop + diff + 5 );
 		}
-			
+	},
+	_doTouchMove: function (e){
+		this._moveTo(this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 );	
 	},
 	_doTouchEnd: function (e){
-		try{
-			this.$n("body").scrollTop = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 ;
-		}catch(ex){
-			console.log(ex);
-		}
 		jq(document).unbind("touchstart");
-		if(window.parent) parent.console.log("hi");
 	},
 	lockScreen: function (e) {
 		e.preventDefault();

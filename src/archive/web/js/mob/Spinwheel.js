@@ -5,6 +5,7 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
     _options:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], //default value for text attribute
     _startY: null,
 	_startScrollY: null,
+    _pos:null , //cached properties
 	$define: {
 	},
 	bind_: function () {
@@ -13,17 +14,36 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
 	setPosition: function (top){
 		if(this.desktop){
 			jq(this.$n("body")).css("top",(top * - 1)+"px");
-//			zk.log("setPosition",top);
+			this._pos = top;
 		}
 	},
 	getPosition: function(){
 		if(this.desktop){
+			if(this._pos != null) {
+				return this._pos;
+			}
+			
 			var top = jq(this.$n("body")).css("top");
 			if(top == "auto") top = 0;
 			else top = parseInt(top.replace(/px/,""),10) * -1 ;
 			return top;
 		}
 	},
+	moveTo_:function(newtop){
+		var  n = this.$n("body"), 
+		newtop = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 ,
+		toplimit = n.scrollHeight - 150 ; //215 from parent
+	
+		if(newtop >= toplimit){  //up bound
+			newtop = toplimit;
+		}else if( newtop < -20){ //low bound
+			newtop = -20;
+		}
+		if(this.getPosition() == newtop){
+			return ;
+		}
+		this.setPosition(newtop);
+	},	
 	_getFirstTouch: function (e){
 		return e.domEvent.originalEvent.targetTouches[0];
 	},
@@ -35,29 +55,10 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
 		});		
 	},
 	_doTouchMove: function (e){
-		var  n = this.$n("body"), 
-			newtop = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 ,
-			toplimit = n.scrollHeight - 150 ; //215 from parent
-		
-		if(newtop >= toplimit){  //up bound
-			newtop = toplimit;
-		}else if( newtop < -20){ //low bound
-			newtop = -20;
-		}
-		if(this.getPosition() == newtop){
-			return ;
-		}
-		this.setPosition(newtop);
-		
+		this.moveTo_((this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 ));
 	},
 	_doTouchEnd: function (e){
-		try{
-			this.$n("body").scrollTop = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY) + 5 ;
-		}catch(ex){
-			console.log(ex);
-		}
 		jq(document).unbind("touchstart");
-		if(window.parent) parent.console.log("hi");
 	},
 	lockScreen: function (e) {
 		e.preventDefault();
