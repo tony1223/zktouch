@@ -6,16 +6,20 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
     _viewsize: 30,
     _startRenderIndex: 0, //the current render index
     _endRendererIndex: 0, //the current render end
-    _diffItems:7,
+    _diffItems:10,
 	$define: {
+	},
+	$init: function(){
+		this.$supers(mob.Spincirclewheel,'$init', arguments);
+		for(var i = 0 ; i < 100 ;++i){
+			this._options[i] = i; 
+		}
 	},
 	bind_: function () {
 		this.$supers(mob.Spincirclewheel,'bind_', arguments);
 		
 		this._startRenderIndex = 0 ;
 		this._endRendererIndex = ( this._viewsize -1 ) % this._options.length; 
-		//A example for domListen_ , REMEMBER to do domUnlisten in unbind_.
-		//this.domListen_(this.$n("cave"), "onClick", "_doItemsClick");
 		var diff = this.rendererPrev();
 		this.setPosition(diff);
 		
@@ -24,8 +28,9 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 		var $body = jq(this.$n("body")),
 			diffItems = this._diffItems,
 			optlen = this._options.length,
-			childtar = $body.find("li:nth-child("+diffItems+")");
-		var diff = childtar.position().top , prevs = childtar.prevAll();
+			childtar = $body.find("li:nth-child("+diffItems+")"),
+			diff = childtar.position().top , 
+			prevs = childtar.prevAll();
 		
 		prevs.hide();
 
@@ -84,7 +89,7 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 		}
 	},
 	unbind_: function () {
-		this.$supers(mob.Spinwheel,'unbind_', arguments);
+		this.$supers(mob.Spincirclewheel,'unbind_', arguments);
 	},
 	getZclass: function () {
 		return this._zclass != null ? this._zclass: "z-spinwheel";

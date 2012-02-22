@@ -6,10 +6,14 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
     _startY: null,
 	_startScrollY: null,
     _pos:null , //cached properties
-    _timer:null,
+    
+    /* for touch momentum*/
+    _timer:null,     
     _scrollV:null,
     _recordCount:10,
     _lastplist:[],
+    _scrollTimes: 0,
+    /* for touch momentum end*/
 	$define: {
 	},
 	bind_: function () {
@@ -75,7 +79,6 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
 		if(parseInt(this._scrollV * 10 , 10) == 0 ){
 			this._scrollV = 0 ;
 		}
-		
 	},	
 	_doTouchStart: function (e){
 		this._stopMoving();
@@ -84,8 +87,9 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
 		jq(document).bind("touchstart",function(){
 			return false;
 		});
-		this._lastplist[0] = {y:this.getPosition(), t:new Date().getTime()};
-		this.n = 0 ;
+		//clear old objects and assign new
+		this._lastplist = [{y:this.getPosition(), t:new Date().getTime()}];
+		this._scrollTimes = 0 ;
 	},
 	_doTouchMove: function (e){
 		var y = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY)  ; 
@@ -96,12 +100,11 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
 			else break;
 		}
 		this._lastplist[0] = {y:y, t:new Date().getTime()};
-		this.n++;
+		this._scrollTimes++;
 	},
 	_doTouchEnd: function (e){
-		zk.log("times",this.n);
 		jq(document).unbind("touchstart");
-		if(this._lastplist[1]){
+		if(this._scrollTimes != 0){
 			var y1,y2 ;
 			y1 = this._lastplist[0];
 			for(var i = this._recordCount; i > 0 ;--i){
@@ -109,9 +112,12 @@ mob.Spinwheel = zk.$extends(zk.Widget, {
 					y2 = this._lastplist[i];
 					break;
 				}
-			}			
-			var ms = (y1.t - y2.t) ;
-			var pxs = (y1.y - y2.y);
+			}
+			var ms = (y1.t - y2.t) ,
+				pxs = (y1.y - y2.y);
+			if( this._scrollTimes == 1 ){
+				pxs = pxs + 150 * (pxs > 0 ? 1:-1);
+			}
 			v = pxs/ms;
 			this._startMoving(v *30 );
 		}
