@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package name="mob.inp" language="xul/html" depends="mob">
+<package name="mob.sel" language="xul/html" depends="mob">
 	<widget name="Listbox" />
+	<widget name="Listitem" />
 </package>

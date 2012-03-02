@@ -7,7 +7,6 @@
 	<style type="text/css"></style>
 </head>
 <body>
-<jsp:include page="jquery.zul" />
 <link rel="stylesheet" href="http://jquerymobile.com/test/docs/_assets/css/jqm-docs.css" />
 <div data-role="page" class="type-interior">
 
@@ -43,7 +42,7 @@
 				
 					<h3>More in this section</h3>
 					
-					<ul data-role="listview"  data-theme="c" data-dividertheme="d">
+					<ul data-role="listview" >
 						<li data-role="list-divider">Overview</li>
 						<li data-theme="a"><a href="../../docs/about/intro.html">Intro to jQuery Mobile</a></li>
 						<li><a href="../../docs/about/getting-started.html">Quick start guide</a></li>	
@@ -52,8 +51,8 @@
 
 						<li><a href="../../docs/about/platforms.html">Supported platforms</a></li>
 
-				
 					</ul>
+					<jsp:include page="jquery.zul" />					
 			</div>
 		</div>		
 

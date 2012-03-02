@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<language>
+    <language-name>mobile</language-name>
+    <device-type>ajax</device-type>
+    <namespace>http://www.zkoss.org/2012/mobile</namespace>
+    
+    <!-- Minimal requirement for a language -->
+    <extension>mbl</extension><!-- the first extension is the major one -->
+    <renderer-class>org.zkoss.zul.impl.PageRenderer</renderer-class>
+    <label-template>
+            <component-name>label</component-name>
+            <component-attribute>value</component-attribute>
+    </label-template>
+    <macro-template>
+            <macro-class>org.zkoss.zk.ui.HtmlMacroComponent</macro-class>
+    </macro-template>
+    <native-template>
+            <native-class>org.zkoss.zk.ui.HtmlNativeComponent</native-class>
+    </native-template>
+    <component>
+            <component-name>label</component-name>
+            <component-class>org.zkoss.zul.Label</component-class>
+            <widget-class>zul.wgt.Label</widget-class>
+            <text-as>value</text-as>
+            <mold>
+                    <mold-name>default</mold-name>
+                    <mold-uri>mold/label.js</mold-uri>
+            </mold>
+    </component>
+        
+	<stylesheet href="~./js/mob/ext/jquery.mobile-1.0.1.css" type="text/css"/>	
+	
+	<!-- TODO  fix this -->
+	<stylesheet href="~./js/mob/inp/css/slot.css.dsp" type="text/css"/>
+	
+	<javascript package="mob" merge="true"/><!-- merge since usually required though optional -->
+	<javascript package="mob.inp" merge="true"/><!-- merge since usually required though optional -->
+	
+	
+	<!-- sel package -->
+	<component>
+		<component-name>listbox</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Listbox</component-class> <!-- required -->
+		<widget-class>mob.sel.Listbox</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/listbox.js</mold-uri>
+		</mold>
+	</component>	
+
+	<component>
+		<component-name>listitem</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Listitem</component-class> <!-- required -->
+		<widget-class>mob.sel.Listitem</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/listitem.js</mold-uri>
+		</mold>
+	</component>		
+	
+	<!-- inp package -->
+	<component>
+		<component-name>spinwheel</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Spinwheel</component-class> <!-- required -->
+		<widget-class>mob.inp.Spinwheel</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/spinwheel.js</mold-uri>
+		</mold>
+	</component>
+	
+	<component>
+		<component-name>spincirclewheel</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Spincirclewheel</component-class> <!-- required -->
+		<widget-class>mob.inp.Spincirclewheel</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/spincirclewheel.js</mold-uri>
+		</mold>
+	</component>
+	
+	<component>
+		<component-name>slot</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Slot</component-class> <!-- required -->
+		<widget-class>mob.inp.Slot</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/slot.js</mold-uri>
+			<css-uri>css/slot.css.dsp</css-uri>			
+		</mold>
+	</component>
+
+</language>
