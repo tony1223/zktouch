@@ -1,7 +1,7 @@
 /**
  * 20120217 1533
  */
-mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
+mob.inp.Spincirclewheel = zk.$extends(mob.inp.Spinwheel, {
     _options: null, //default value for text attribute
     _viewsize: 30,
     _start:0,
@@ -18,10 +18,10 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 		}
 	},
 	$init: function(){
-		this.$supers(mob.Spincirclewheel,'$init', arguments);
+		this.$supers(mob.inp.Spincirclewheel,'$init', arguments);
 	},
 	bind_: function () {
-		this.$supers(mob.Spincirclewheel,'bind_', arguments);
+		this.$supers(mob.inp.Spincirclewheel,'bind_', arguments);
 		
 		this._startRenderIndex = 0 ;
 		this._endRendererIndex = ( this._viewsize -1 ) % this._options.length;
@@ -97,7 +97,7 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 		}
 	},
 	unbind_: function () {
-		this.$supers(mob.Spincirclewheel,'unbind_', arguments);
+		this.$supers(mob.inp.Spincirclewheel,'unbind_', arguments);
 	},
 	getZclass: function () {
 		return this._zclass != null ? this._zclass: "z-spinwheel";

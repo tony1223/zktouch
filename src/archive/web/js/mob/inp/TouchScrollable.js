@@ -1,4 +1,4 @@
-mob.TouchScrollable = zk.$extends(zk.Object,{
+mob.inp.TouchScrollable = zk.$extends(zk.Object,{
     _startY: null,
 	_startScrollY: 0,
 	

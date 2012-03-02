@@ -2,7 +2,11 @@
 
 <package name="mob" language="xul/html">
 	<widget name="Widget" />
-	<widget name="Slot" />
-	<widget name="Spinwheel" />
-	<widget name="Spincirclewheel" />
+	<script>
+		zk.__p = zk._p;
+	</script>
+	<script src="ext/jquery.mobile.js" />
+	 <script>
+		zk._p = zk.__p;
+	</script>
 </package>

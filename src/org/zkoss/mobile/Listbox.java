@@ -1,7 +1,7 @@
 package org.zkoss.mobile;
 
 
-public class Slot extends MobileElement  {
+public class Listbox extends MobileElement  {
 
 	/**
 	 * 
@@ -16,10 +16,9 @@ public class Slot extends MobileElement  {
 	}
 
 	/**
-	 * The default zclass is "z-slot"
+	 * The default zclass is "z-listbox"
 	 */
 	public String getZclass() {
-		return (this._zclass != null ? this._zclass : "z-slot");
+		return (this._zclass != null ? this._zclass : "z-listbox");
 	}
 }
-

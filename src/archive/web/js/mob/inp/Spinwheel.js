@@ -1,7 +1,7 @@
 /**
  * 20120217 1533
  */
-mob.Spinwheel = zk.$extends(mob.Widget, {
+mob.inp.Spinwheel = zk.$extends(mob.Widget, {
     _options:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], //default value for text attribute
     _startY: null,
 	_startScrollY: 0,
@@ -20,7 +20,7 @@ mob.Spinwheel = zk.$extends(mob.Widget, {
 		}
 	},
 	bind_: function () {
-		this.$supers(mob.Spinwheel,'bind_', arguments);
+		this.$supers(mob.inp.Spinwheel,'bind_', arguments);
 		this._fixSelectedItemViewIndex();		
 	},
 	proxy: function (fn){
@@ -208,7 +208,7 @@ mob.Spinwheel = zk.$extends(mob.Widget, {
 	},
 	unbind_: function () {
 		// this.domUnlisten_(this.$n("cave"), "onClick", "_doItemsClick");
-		this.$supers(mob.Spinwheel,'unbind_', arguments);
+		this.$supers(mob.inp.Spinwheel,'unbind_', arguments);
 	},
 	getZclass: function () {
 		return this._zclass != null ? this._zclass: "z-spinwheel";

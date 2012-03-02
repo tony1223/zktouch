@@ -25,7 +25,7 @@ public class Spincirclewheel extends Spinwheel  {
 	}
 	
 	public String getZclass() {
-		return (this._zclass != null ? this._zclass : "z-spinwheel");
+		return (this._zclass != null ? this._zclass : "z-spinwheel"); //TODO change this
 	}
 
 

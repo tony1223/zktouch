@@ -1,9 +1,8 @@
 package org.zkoss.mobile;
 
 import org.zkoss.lang.Objects;
-import org.zkoss.zul.impl.XulElement;
 
-public class Spinwheel extends XulElement  {
+public class Spinwheel extends MobileElement  {
 	/**
 	 * 
 	 */
@@ -32,7 +31,7 @@ public class Spinwheel extends XulElement  {
 	}
 
 	/**
-	 * The default zclass is "z-spinningwheel"
+	 * The default zclass is "z-spinwheel"
 	 */
 	public String getZclass() {
 		return (this._zclass != null ? this._zclass : "z-spinwheel");

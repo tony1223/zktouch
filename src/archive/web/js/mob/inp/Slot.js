@@ -1,12 +1,12 @@
 /**
  * 20120217 1718
  */
-mob.Slot = zk.$extends(mob.Widget, {
+mob.inp.Slot = zk.$extends(mob.Widget, {
     _currentTouchWheel:null,
 	$define: {
 	},
 	bind_: function () {
-		this.$supers(mob.Slot,'bind_', arguments);
+		this.$supers(mob.inp.Slot,'bind_', arguments);
 		
 		var node = this.$n("frame");
 		this.domListen_( node, "onTouchstart", "_doTouchStart");
@@ -52,7 +52,7 @@ mob.Slot = zk.$extends(mob.Widget, {
 		this.domUnlisten_( node, "onTouchstart", "_doTouchStart");
 		this.domUnlisten_( node, "onTouchmove", "_doTouchMove");
 		this.domUnlisten_( node, "onTouchend", "_doTouchEnd");
-		this.$supers(mob.Slot,'unbind_', arguments);
+		this.$supers(mob.inp.Slot,'unbind_', arguments);
 	},
 	getZclass: function () {
 		return this._zclass != null ? this._zclass: "z-slot";

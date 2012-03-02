@@ -10,10 +10,15 @@
 	</version>
 
 	<language-name>xul/html</language-name>
+	
+	<stylesheet href="~./js/mob/ext/jquery.mobile-1.0.1.css" type="text/css"/>	
+	<javascript package="mob" merge="true"/><!-- merge since usually required though optional -->
+	<javascript package="mob.inp" merge="true"/><!-- merge since usually required though optional -->
+	
 	<component>
 		<component-name>spinwheel</component-name> <!-- required -->
 		<component-class>org.zkoss.mobile.Spinwheel</component-class> <!-- required -->
-		<widget-class>mob.Spinwheel</widget-class> <!-- required -->
+		<widget-class>mob.inp.Spinwheel</widget-class> <!-- required -->
 		<mold>
 			<mold-name>default</mold-name>
 			<mold-uri>mold/spinwheel.js</mold-uri>
@@ -24,7 +29,7 @@
 	<component>
 		<component-name>spincirclewheel</component-name> <!-- required -->
 		<component-class>org.zkoss.mobile.Spincirclewheel</component-class> <!-- required -->
-		<widget-class>mob.Spincirclewheel</widget-class> <!-- required -->
+		<widget-class>mob.inp.Spincirclewheel</widget-class> <!-- required -->
 		<mold>
 			<mold-name>default</mold-name>
 			<mold-uri>mold/spincirclewheel.js</mold-uri>
@@ -34,7 +39,7 @@
 	<component>
 		<component-name>slot</component-name> <!-- required -->
 		<component-class>org.zkoss.mobile.Slot</component-class> <!-- required -->
-		<widget-class>mob.Slot</widget-class> <!-- required -->
+		<widget-class>mob.inp.Slot</widget-class> <!-- required -->
 		<mold>
 			<mold-name>default</mold-name>
 			<mold-uri>mold/slot.js</mold-uri>
