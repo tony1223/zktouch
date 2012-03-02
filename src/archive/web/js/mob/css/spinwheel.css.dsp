@@ -24,11 +24,15 @@
 	list-style: none;	
 	overflow:hidden;
 }
-
 .z-spinwheel li{
 	padding: 0 8px;
 	height: 44px;
+	text-align:center;
 	overflow: hidden;
+	font: bold 24px/44px Helvetica,sans-serif;
+}
+
+.z-spinwheel .z-spinwheel-sel {
 	font: bold 24px/44px Helvetica,sans-serif;
 }
 

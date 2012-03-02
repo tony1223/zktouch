@@ -2,26 +2,35 @@
  * 20120217 1533
  */
 mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
-    _options: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19], //default value for text attribute
+    _options: null, //default value for text attribute
     _viewsize: 30,
+    _start:0,
+    _end:12,
     _startRenderIndex: 0, //the current render index
     _endRendererIndex: 0, //the current render end
     _diffItems:10,
 	$define: {
+		start:function(){
+			this.rerender();
+		},
+		end:function(){
+			this.rerender();
+		}
 	},
 	$init: function(){
 		this.$supers(mob.Spincirclewheel,'$init', arguments);
-		for(var i = 0 ; i < 100 ;++i){
-			this._options[i] = i; 
-		}
 	},
 	bind_: function () {
 		this.$supers(mob.Spincirclewheel,'bind_', arguments);
 		
 		this._startRenderIndex = 0 ;
-		this._endRendererIndex = ( this._viewsize -1 ) % this._options.length; 
-		var diff = this.rendererPrev();
-		this.setPosition(diff);
+		this._endRendererIndex = ( this._viewsize -1 ) % this._options.length;
+		
+		var wgt = this;
+		setTimeout(function(){
+			var diff = wgt.rendererPrev();
+			wgt.setPosition(diff);
+		}, 200);
 		
 	},
 	rendererNext: function(){
@@ -54,16 +63,15 @@ mob.Spincirclewheel = zk.$extends(mob.Spinwheel, {
 			diff = (lastchild.position().top ) - childtar.position().top , 
 			nexts = childtar.nextAll();
 		nexts.hide();
-	
 		var out = [];
 		this.redrawChild(out,(this._startRenderIndex - diffItems +1)  , this._startRenderIndex  );
 		
 		this._startRenderIndex = (this._startRenderIndex - diffItems + 1 + optlen) % optlen;
 		this._endRendererIndex = (this._endRendererIndex - diffItems + 1 + optlen) % optlen;
 	
-		this._startScrollY += diff,
+		this._startScrollY += diff;
 		$body.prepend(out.join(""));
-		nexts.remove();
+		nexts.remove();		
 		return diff;
 	},
 	redrawChild: function(out,start,end){

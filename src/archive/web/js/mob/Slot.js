@@ -1,12 +1,9 @@
 /**
  * 20120217 1718
  */
-mob.Slot = zk.$extends(zk.Widget, {
+mob.Slot = zk.$extends(mob.Widget, {
     _currentTouchWheel:null,
 	$define: {
-	},
-	bind_: function () {
-		this.$supers(mob.Slot,'bind_', arguments);
 	},
 	bind_: function () {
 		this.$supers(mob.Slot,'bind_', arguments);
@@ -50,18 +47,6 @@ mob.Slot = zk.$extends(zk.Widget, {
 	_doTouchEnd: function (e){
 		if(this._currentTouchWheel) this._currentTouchWheel._doTouchEnd(e);
 	},
-	lockScreen: function (e) {
-		e.preventDefault();
-		e.stopPropagation();
-	},
-	/*
-	  A example for domListen_ listener.
-	*/
-	/*
-	_doItemsClick: function (evt) {
-		alert("item click event fired");
-	},
-	*/
 	unbind_: function () {
 		var node = this.$n("frame");
 		this.domUnlisten_( node, "onTouchstart", "_doTouchStart");
