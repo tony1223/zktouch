@@ -2,6 +2,17 @@ function (out) {
 	var zcls = this.getZclass(),
 		uuid = this.uuid;
 	
-	out.push('<li ',this.domAttrs_(),' ><a href="', (this._href == null ? '#' : this._href ),'">', this._label ,'</a></li>');
+	out.push('<li ',this.domAttrs_(),' ><a href="', (this._href == null ? '#' : this._href ),'">');
+	
+	/*
+	 * TODO XML escaping
+	 */
+	out.push( this._label );
+	
+	this.eachChild(function(index,child){ 
+		this.redraw(out);
+	});
+	
+	out.push('</a></li>');
 	
 }

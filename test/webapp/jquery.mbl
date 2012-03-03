@@ -1,0 +1,35 @@
+<zk xmlns:m="http://www.zkoss.org/2012/mobile" xmlns:zul="zul" xmlns:h="html">
+	<m:page>
+		<zscript>
+			org.zkoss.zul.ListModelList list = new org.zkoss.zul.ListModelList();
+			list.add("hi");
+			list.add("hi2");
+			list.add("hi3");
+			list.add("hi4");
+			
+		</zscript>
+ 		<m:listbox model="${list}" theme="B" onSelect='alert("hi:"+event.getSelectedIndex()+":"+self.getSelectedData());' >
+ 			<template name="model" >
+ 				<m:listitem>
+ 					<h:div>
+						<zul:label value="${each}" />
+					</h:div>
+					<zul:label value="h2" />
+					<zul:label value="h3" />
+ 				</m:listitem>
+ 			</template>
+ 		</m:listbox>
+ 		
+ 		<m:listbox model="${list}" onSelect='alert("hi:"+event.getSelectedIndex()+":"+self.getSelectedData());' >
+ 			<template name="model" >
+ 				<m:listitem>
+ 					<h:div>
+						<zul:label value="${each}" />
+					</h:div>
+					<zul:label value="h2" />
+					<zul:label value="h3" />
+ 				</m:listitem>
+ 			</template>
+ 		</m:listbox> 		
+ 	</m:page>
+</zk>

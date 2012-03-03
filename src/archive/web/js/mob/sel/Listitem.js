@@ -9,8 +9,12 @@ mob.sel.Listitem = zk.$extends(mob.Widget, {
 	bind_: function () {
 		this.$supers(mob.sel.Listitem,'bind_', arguments);
 		if(this.parent && this.parent.refresh_){ //invoking mob.Listbox.refresh_
-//			this.parent.refresh_(); 
+			this.parent.refresh_(); 
+			zk.log("refrehs");
 		}
+
+		var link = jq("> .ui-btn-inner > .ui-btn-text > .ui-link-inherit");
+		
 	},
 	unbind_: function () {
 		this.$supers(mob.sel.Listitem,'unbind_', arguments);

@@ -2,11 +2,15 @@
 
 <package name="mob" language="xul/html">
 	<widget name="Widget" />
-	<script>
+	<widget name="Page" />
+	
+	
+	<script>	<!-- hack for mobile with ZK -->
 		zk.__p = zk._p;
 	</script>
 	<script src="ext/jquery.mobile.js" />
 	 <script>
 		zk._p = zk.__p;
 	</script>
+	<script src="mountjqm.js" />
 </package>

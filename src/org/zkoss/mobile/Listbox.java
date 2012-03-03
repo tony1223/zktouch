@@ -1,7 +1,9 @@
 package org.zkoss.mobile;
 
 import org.zkoss.lang.Objects;
+import org.zkoss.mobile.event.SelectEvent;
 import org.zkoss.xel.VariableResolver;
+import org.zkoss.zk.au.AuRequest;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.UiException;
 import org.zkoss.zk.ui.event.Event;
@@ -23,12 +25,17 @@ public class Listbox extends MobileElement  {
 	 */
 	private static final long serialVersionUID = 1531749351114872620L;
 
+	static {
+		addClientEvent(Listbox.class, Events.ON_SELECT, 0);
+	}
+	
 	private transient boolean filter = false;
 	
 	private transient ListModel<?> _model;
 	private transient ListitemRenderer<?> _renderer;
 	private transient ListDataListener _dataListener;
 	
+	private Integer selecedIndex =0 ;
 	
 	//super//
 	protected void renderProperties(org.zkoss.zk.ui.sys.ContentRenderer renderer)
@@ -142,9 +149,29 @@ public class Listbox extends MobileElement  {
 	}
 
 	
+	public void service(AuRequest request, boolean everError) {
+		if(Events.ON_SELECT.equals(request.getCommand())){
+			SelectEvent evt =  SelectEvent.getSelectEvent(request);
+			selecedIndex = evt.getSelectedIndex();
+			Events.postEvent(evt);
+		}else{
+			super.service(request, everError);
+		}
+	}
 	
-	/** TODO models ***/
-
+	/**
+	 * 
+	 * @param <T> T is the type , it should be as same as the model type , it's user's responsibility to make sure the type is correct. 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public <T> T getSelectedData(){
+		if( getModel() == null){
+			throw new UiException("You could invoke getSelectedData only when you are using model ");
+		}
+		return (T) getModel().getElementAt(selecedIndex);
+	}
+	
 	@SuppressWarnings("unchecked")
 	private <T> ListitemRenderer<T> getRealRenderer(){
 		return _renderer == null ?  (ListitemRenderer<T>)  _defRender :  (ListitemRenderer<T>) _renderer;
@@ -250,8 +277,6 @@ public class Listbox extends MobileElement  {
 			}
 	};
 	
-	/** TODO models ***/
-	
 	
 	/***
 	 */
@@ -279,4 +304,19 @@ public class Listbox extends MobileElement  {
 			initDataListener();
 		}
 	}
+
+	/**
+	 * @return the selecedIndex
+	 */
+	public Integer getSelecedIndex() {
+		return selecedIndex;
+	}
+
+	/**
+	 * @param selecedIndex the selecedIndex to set
+	 */
+	public void setSelecedIndex(Integer selecedIndex) {
+		this.selecedIndex = selecedIndex;
+	}
+	
 }

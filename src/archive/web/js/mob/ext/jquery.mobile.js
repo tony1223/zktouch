@@ -1301,7 +1301,7 @@ $.widget( "mobile.widget", {
 		pageLoadErrorMessageTheme: "e",
 
 		//automatically initialize the DOM when it's ready
-		autoInitializePage: true,
+		autoInitializePage: false,
 
 		pushStateEnabled: true,
 

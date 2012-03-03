@@ -1,0 +1,14 @@
+<zk xmlns:m="mobile">
+ 
+	<m:slot>
+		<m:spincirclewheel start="1900" end="2200" />
+		<m:spincirclewheel start="1" end="12" />
+		<m:spincirclewheel start="1" end="31" />
+	</m:slot>
+
+	<m:slot>
+		<m:spincirclewheel start="1900" end="2200" />
+		<m:spincirclewheel start="1" end="12" />
+		<m:spincirclewheel start="1" end="31" />
+	</m:slot>
+</zk>
