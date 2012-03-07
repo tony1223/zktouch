@@ -2,6 +2,7 @@
  * 20120302 1753
  */
 mob.sel.Listitem = zk.$extends(mob.Widget, {
+	_divider:false,
 	$define: {
 		href:null,
 		label:null,
@@ -18,7 +19,7 @@ mob.sel.Listitem = zk.$extends(mob.Widget, {
 			this.parent.refresh_(); 
 		}
 
-		var link = jq("> .ui-btn-inner > .ui-btn-text > .ui-link-inherit");
+//		var link = jq("> .ui-btn-inner > .ui-btn-text > .ui-link-inherit");
 		
 	},
 	unbind_: function () {

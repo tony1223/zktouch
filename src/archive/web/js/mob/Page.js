@@ -1,7 +1,19 @@
 mob.Page = zk.$extends(mob.Widget,{
+	_active: true,
 	_datas:{
 		role:'page',
 		theme:'c'
+	},
+	$define:{
+		active: function(val){
+			if(this.desktop){
+				if(val){
+					jq(this.$n()).addClass("ui-page-active");
+				}else{
+					jq(this.$n()).removeClass("ui-page-active");
+				}
+			}
+		}
 	},
 	redraw: function(out){
 		out.push('<div ',this.domAttrs_(),' >');
@@ -21,7 +33,13 @@ mob.Page = zk.$extends(mob.Widget,{
 	},	
 	domClass_: function(){
 		var sup = this.$supers(mob.Page,'domClass_', arguments);
-		return sup + " ui-page-active";
+		
+		if(!this._active) {
+			return sup ;
+		} else {
+			return sup + " ui-page-active";
+		}
+		
 	}
 });
 

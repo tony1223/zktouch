@@ -1,28 +1,30 @@
 /**
  * 20120217 1718
  */
+
+
 mob.sel.Listbox = zk.$extends(mob.Widget, {
 	_datas:{
 		role:'listview',
-		inset:true,
+//		inset:true,
 		filter:false
 	},	
 	$define: {
 	},
 	bind_: function () {
 		this.$supers(mob.sel.Listbox,'bind_', arguments);
-		
-		if(!$.data(this.$n(),"listview")){
-			$.data( this.$n(), "listview", new $.mobile.listview( null, this.$n() ) );
-		}
-		
-		var wgt= this;
-		jq(this.$n()).delegate("a.ui-link-inherit","tap.listbox",function(e){
+		var wgt= this,ary = [];
+		jq(this.$n()).delegate("a.ui-link-inherit","click.listbox",function(e){
 			wgt.doSelectListem_.apply(wgt,[e,this]); //Note this is the delegated target
 		});
 	},
+	bindChildren_: function(){
+		if(!$.data(this.$n(),"listview")){ //FIXME handle refreshcornors;
+			$.data( this.$n(), "listview", new $.mobile.listview( null, this.$n() ) );
+		}		
+		this.$supers(mob.sel.Listbox ,'bindChildren_', arguments);
+	},	
 	doSelectListem_: function(e,dom){ //Note the e is jQuery event
-		
 		var wid = zk.Widget.$(dom); //assume this should be listitem
 		if(wid){
 			if(wid._ajaxLink && wid._href){

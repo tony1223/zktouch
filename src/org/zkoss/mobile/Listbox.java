@@ -18,7 +18,7 @@ import org.zkoss.zul.event.ZulEvents;
 import org.zkoss.zul.ext.Selectable;
 
 
-public class Listbox extends MobileElement  {
+public class Listbox extends JQueryMobileElement  {
 
 	private static final String ATTR_ON_INITRENDER = "mob.Listbox.ON_INITRENDER";
 
@@ -46,7 +46,7 @@ public class Listbox extends MobileElement  {
 
 		if(filter != true)
 			render(renderer, "filter", filter);
-
+		
 	}
 
 	/**

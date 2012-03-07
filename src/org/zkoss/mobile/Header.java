@@ -6,7 +6,7 @@ import org.zkoss.zk.ui.sys.ContentRenderer;
 
 
 
-public class Header extends MobileElement  {
+public class Header extends JQueryMobileElement  {
 	
 	private static final long serialVersionUID = -2775407902338585366L;
 

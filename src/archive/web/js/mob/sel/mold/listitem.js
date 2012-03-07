@@ -2,7 +2,10 @@ function (out) {
 	var zcls = this.getZclass(),
 		uuid = this.uuid;
 	
-	out.push('<li ',this.domAttrs_(),' ><a href="', (this._href == null ? '#' : this._href ),'">');
+	out.push('<li ',this.domAttrs_(),' >');
+	
+	if(!this._divider)
+		out.push('<a href="', (this._href == null ? '#' : this._href ),'">');
 	
 	/*
 	 * TODO XML escaping
@@ -13,6 +16,9 @@ function (out) {
 		this.redraw(out);
 	});
 	
-	out.push('</a></li>');
+	if(!this._divider)
+		out.push('</a>');
+	
+	out.push('</li>');
 	
 }

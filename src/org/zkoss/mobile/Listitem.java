@@ -2,16 +2,16 @@ package org.zkoss.mobile;
 
 import java.io.IOException;
 
+import org.zkoss.lang.Objects;
 import org.zkoss.zk.ui.sys.ContentRenderer;
 
-public class Listitem extends MobileElement {
+public class Listitem extends JQueryMobileElement {
 	private static final long serialVersionUID = -4349016012482103087L;
 	private String _label;
 	private String _href;
 	private String _mode;
 	private boolean _divider = false;
 	
-
 	protected void renderProperties(ContentRenderer renderer)
 			throws IOException {
 		super.renderProperties(renderer);
@@ -22,7 +22,8 @@ public class Listitem extends MobileElement {
 
 		render(renderer, "mode", _mode);
 		
-		render(renderer,"divider",_divider);
+		if(_divider)
+			render(renderer,"divider",_divider);
 		
 	}
 
@@ -38,7 +39,11 @@ public class Listitem extends MobileElement {
 	 *            the label to set
 	 */
 	public void setLabel(String label) {
-		this._label = label;
+		if(!Objects.equals(label, this._label)){
+			this._label = label;
+			smartUpdate("label", _label);
+		}
+		
 	}
 
 	/**
@@ -53,7 +58,7 @@ public class Listitem extends MobileElement {
 	 *            the href to set
 	 */
 	public void setHref(String href) {
-		this._href = href;
+		this._href = href; //FIXME smartupdate
 	}
 
 	public String getZclass() {
@@ -74,7 +79,7 @@ public class Listitem extends MobileElement {
 	 *            the mode to set
 	 */
 	public void setMode(String mode) {
-		this._mode = mode;
+		this._mode = mode; //FIXME smartupdate
 	}
 
 	/**
@@ -88,6 +93,6 @@ public class Listitem extends MobileElement {
 	 * @param divider the divider to set
 	 */
 	public void setDivider(boolean divider) {
-		this._divider = divider;
+		this._divider = divider; //FIXME smartupdate
 	}
 }

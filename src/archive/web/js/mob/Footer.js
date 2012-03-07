@@ -1,6 +1,6 @@
-mob.Header = zk.$extends(mob.Widget,{
+mob.Footer = zk.$extends(mob.Widget,{
 	_datas:{
-		role:'header'
+		role:'footer'
 	},
 	$define:{
 		caption:null
@@ -8,9 +8,6 @@ mob.Header = zk.$extends(mob.Widget,{
 	redraw: function(out){
 		out.push('<div ',this.domAttrs_(),' >');
 		
-		if(this._caption){//FIXME handling escaping
-			out.push('<h1> ' , this._caption , ' </h1>');
-		}
 		this.eachChild(function(index,child){ 
 			this.redraw(out);
 		});
@@ -18,8 +15,7 @@ mob.Header = zk.$extends(mob.Widget,{
 		
 	},
 	bindChildren_: function(){
-		this.$supers(mob.Header,'bindChildren_', arguments);
-		
+		this.$supers(mob.Footer,'bindChildren_', arguments);
 		//FIXME check pagecreate event to handle dynamic add headers.
 	}
 });

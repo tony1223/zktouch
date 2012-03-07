@@ -1,8 +1,16 @@
 mob.Widget = zk.$extends(zk.Widget,{
-	_datas:{
-	},
+	/**
+	 * Will be writen to data-attribute when rendering dom.
+	 */
+	_datas:{}, 
 	getTouchEvt_: function (e){
 		return e.domEvent.originalEvent;
+	},
+	$define:{
+		theme: function(val){
+			this._datas.theme = val;
+			this.rerender();
+		} 
 	},
 	/**
 	 * Just like jQuery.each , here we iterate all the children.
