@@ -4,13 +4,18 @@
 mob.sel.Listitem = zk.$extends(mob.Widget, {
 	$define: {
 		href:null,
-		label:null
+		label:null,
+		divider:function(){
+			this._datas["role"] = "list-divider";
+			if(this.desktop){
+				this.rerender();
+			}
+		}
 	},
 	bind_: function () {
 		this.$supers(mob.sel.Listitem,'bind_', arguments);
 		if(this.parent && this.parent.refresh_){ //invoking mob.Listbox.refresh_
 			this.parent.refresh_(); 
-			zk.log("refrehs");
 		}
 
 		var link = jq("> .ui-btn-inner > .ui-btn-text > .ui-link-inherit");

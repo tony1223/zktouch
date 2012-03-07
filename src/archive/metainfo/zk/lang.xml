@@ -44,6 +44,14 @@
 		<component-class>org.zkoss.mobile.Page</component-class> <!-- required -->
 		<widget-class>mob.Page</widget-class> <!-- required -->
 	</component>
+	
+	<!-- page elements -->
+
+	<component>
+		<component-name>header</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Header</component-class> <!-- required -->
+		<widget-class>mob.Header</widget-class> <!-- required -->
+	</component>
 		
 	<!-- sel package -->
 	<component>

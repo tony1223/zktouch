@@ -20,8 +20,6 @@ import org.zkoss.zul.ext.Selectable;
 
 public class Listbox extends MobileElement  {
 
-	private static final String ATTR_ON_INITRENDER = "mob.Listbox.ON_INITRENDER";
-
 	/**
 	 * 
 	 */
@@ -191,9 +189,10 @@ public class Listbox extends MobileElement  {
 	}
 	
 	private void postOnInitRender(String idx) {
-		if (getAttribute(ATTR_ON_INITRENDER) == null) {
+		//20080724, Henri Chen: optimize to avoid postOnInitRender twice
+		if (getAttribute("mob.Listbox.ON_INITRENDER") == null) {
 	  		//Bug #2010389
-			setAttribute(ATTR_ON_INITRENDER, Boolean.TRUE); //flag syncModel
+			setAttribute("mob.Listbox.ON_INITRENDER", Boolean.TRUE); //flag syncModel
 			Events.postEvent("onInitRender", this, idx);
 		}
 	}	
@@ -204,7 +203,7 @@ public class Listbox extends MobileElement  {
 	 */
 	public void onInitRender(Event event) {
   		//Bug #2010389
-		removeAttribute(ATTR_ON_INITRENDER); //clear syncModel flag
+		removeAttribute("zul.Combobox.ON_INITRENDER"); //clear syncModel flag
 
 		ListModel<?> model = _model;
 		if(model == null){

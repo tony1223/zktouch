@@ -1,5 +1,8 @@
 <zk xmlns:m="http://www.zkoss.org/2012/mobile" xmlns:zul="zul" xmlns:h="html">
 	<m:page>
+		<m:header caption="hihihihi">
+		
+		</m:header>	
 		<zscript>
 			org.zkoss.zul.ListModelList list = new org.zkoss.zul.ListModelList();
 			list.add("hi");
@@ -20,16 +23,20 @@
  			</template>
  		</m:listbox>
  		
- 		<m:listbox model="${list}" onSelect='alert("hi:"+event.getSelectedIndex()+":"+self.getSelectedData());' >
+ 		<!--
+ 		<m:listbox model="${list}" onSelect='alert(list.size()+"hi:"+event.getSelectedIndex()+":"+self.getSelectedData());' >
  			<template name="model" >
- 				<m:listitem>
+ 				<m:listitem divide="true">
  					<h:div>
 						<zul:label value="${each}" />
 					</h:div>
-					<zul:label value="h2" />
+					<zul:label value="h222" />
 					<zul:label value="h3" />
  				</m:listitem>
  			</template>
  		</m:listbox> 		
+ 		-->
+ 		<zul:button label="add model item" onClick='list.add("ti");' />
+ 		<zul:button label="remove model item" onClick="list.remove(list.size()-1);" />
  	</m:page>
 </zk>

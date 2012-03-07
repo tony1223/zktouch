@@ -11,7 +11,6 @@ mob.Page = zk.$extends(mob.Widget,{
 		out.push('</div>');
 	},
 	bindChildren_: function(){
-		zk.log("init page");
 		if(!$.data(this.$n(),"page")){
 			$.data( this.$n(), "page", new $.mobile.page( null, this.$n() ) );
 		}		

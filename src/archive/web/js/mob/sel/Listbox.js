@@ -5,7 +5,7 @@ mob.sel.Listbox = zk.$extends(mob.Widget, {
 	_datas:{
 		role:'listview',
 		inset:true,
-		filter:true
+		filter:false
 	},	
 	$define: {
 	},

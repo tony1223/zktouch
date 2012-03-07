@@ -3,6 +3,7 @@
 <package name="mob" language="xul/html">
 	<widget name="Widget" />
 	<widget name="Page" />
+	<widget name="Header" />
 	
 	
 	<script>	<!-- hack for mobile with ZK -->

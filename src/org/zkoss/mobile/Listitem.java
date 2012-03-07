@@ -9,6 +9,8 @@ public class Listitem extends MobileElement {
 	private String _label;
 	private String _href;
 	private String _mode;
+	private boolean _divider = false;
+	
 
 	protected void renderProperties(ContentRenderer renderer)
 			throws IOException {
@@ -19,6 +21,9 @@ public class Listitem extends MobileElement {
 		render(renderer, "href", _href);
 
 		render(renderer, "mode", _mode);
+		
+		render(renderer,"divider",_divider);
+		
 	}
 
 	/**
@@ -70,5 +75,19 @@ public class Listitem extends MobileElement {
 	 */
 	public void setMode(String mode) {
 		this._mode = mode;
+	}
+
+	/**
+	 * @return the divider
+	 */
+	public boolean isDivider() {
+		return _divider;
+	}
+
+	/**
+	 * @param divider the divider to set
+	 */
+	public void setDivider(boolean divider) {
+		this._divider = divider;
 	}
 }
