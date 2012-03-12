@@ -1,6 +1,6 @@
 <zk xmlns:m="http://www.zkoss.org/2012/mobile" xmlns:zul="zul" xmlns:h="html" xmlns:w="client" >
 	<m:page id="test1" active="true">
-		<m:header caption="hihihihi" theme="b" />
+		<m:header caption="Welcome to demo app" theme="b" />
 		<zscript>
 			org.zkoss.zul.ListModelList list = new org.zkoss.zul.ListModelList();
 			list.add("Class 1");
@@ -10,18 +10,19 @@
 			
 		</zscript>
 		
- 		<m:listbox model="${list}"  theme="a" onSelect='test2.setActive(true);test1.setActive(false);'>
+ 		<listbox model="${list}"  theme="a" onSelect='test2.setActive(true);test1.setActive(false);'>
  			<template name="model" >
  				<m:listitem divider="${each =='title' }">
  					<h:div>
 						<zul:label value="${each}" />
 					</h:div>
+					<zul:textbox />
 					<zul:label value="Location" if="${each !='title' }" />
 					<zul:label value="Building1" if="${each !='title' }"  />
  					<zul:image src="http://dummyimage.com/80x80/000/fff&amp;text=test" />					
  				</m:listitem>
  			</template>
- 		</m:listbox>
+ 		</listbox>
  		
  		<!--
  		<m:listbox model="${list}" onSelect='alert(list.size()+"hi:"+event.getSelectedIndex()+":"+self.getSelectedData());' >
@@ -40,10 +41,12 @@
  		-->
  		<zul:button label="add model item" onClick='list.add("Student new ");' />
  		<zul:button label="remove model item" onClick="list.remove(list.size()-1);" />
+ 		
+ 		<m:footer theme="b" caption="Power by ZK" />
  	</m:page>
  	
  	<m:page id="test2" active="false">
-		<m:header caption="hihihihi" theme="b" />
+		<m:header caption="Class" theme="b" />
 		<zscript>
 			org.zkoss.zul.ListModelList list = new org.zkoss.zul.ListModelList();
 			list.add("Student 1");
@@ -64,8 +67,7 @@
  				</m:listitem>
  			</template>
  		</m:listbox>
- 		
- 		<zul:button label="Back" onClick="test1.setActive(true);test2.setActive(false);" />		
+ 		<zul:button label="Back" onClick="test1.setActive(true);test2.setActive(false);" />		 		
 	</m:page>
 	<!--
 	<zul:script src="http://jsconsole.com/remote.js?tonyq"></zul:script>	

@@ -4,6 +4,7 @@
 	<widget name="Widget" />
 	<widget name="Page" />
 	<widget name="Header" />
+	<widget name="Footer" />
 	
 	<script src="ext/jquery.mobile.js" />
 	<script src="mountjqm.js" />

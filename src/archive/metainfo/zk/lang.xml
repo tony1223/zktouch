@@ -52,6 +52,11 @@
 		<component-class>org.zkoss.mobile.Header</component-class> <!-- required -->
 		<widget-class>mob.Header</widget-class> <!-- required -->
 	</component>
+	<component>
+		<component-name>footer</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.Footer</component-class> <!-- required -->
+		<widget-class>mob.Footer</widget-class> <!-- required -->
+	</component>	
 		
 	<!-- sel package -->
 	<component>

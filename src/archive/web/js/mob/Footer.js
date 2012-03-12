@@ -1,18 +1,6 @@
-mob.Footer = zk.$extends(mob.Widget,{
+mob.Footer = zk.$extends(mob.Header,{
 	_datas:{
 		role:'footer'
-	},
-	$define:{
-		caption:null
-	},
-	redraw: function(out){
-		out.push('<div ',this.domAttrs_(),' >');
-		
-		this.eachChild(function(index,child){ 
-			this.redraw(out);
-		});
-		out.push('</div>');
-		
 	},
 	bindChildren_: function(){
 		this.$supers(mob.Footer,'bindChildren_', arguments);
