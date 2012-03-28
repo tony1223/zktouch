@@ -4,5 +4,5 @@
 	<widget name="Slot" />
 	<widget name="Spinwheel" />
 	<widget name="Spincirclewheel" />
-	
+	<widget name="TouchScrollable" />
 </package>

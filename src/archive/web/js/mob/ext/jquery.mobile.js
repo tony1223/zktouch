@@ -7345,6 +7345,7 @@ $( document ).bind( "pagecreate create", function( e ){
 			
 			// if no pages are found, create one with body's inner html
 			if ( !$pages.length ) {
+//				 $( "body > script" ).remove();
 				$pages = $( "body" ).wrapInner( "<div data-" + $.mobile.ns + "role='page'></div>" ).children( 0 );
 			}
 			

@@ -17,9 +17,6 @@ mob.inp.Spincirclewheel = zk.$extends(mob.inp.Spinwheel, {
 			this.rerender();
 		}
 	},
-	$init: function(){
-		this.$supers(mob.inp.Spincirclewheel,'$init', arguments);
-	},
 	bind_: function () {
 		this.$supers(mob.inp.Spincirclewheel,'bind_', arguments);
 		
@@ -95,9 +92,6 @@ mob.inp.Spincirclewheel = zk.$extends(mob.inp.Spinwheel, {
 			var diff = this.rendererPrev();
 			this.setPosition(newtop + diff + 5 );
 		}
-	},
-	unbind_: function () {
-		this.$supers(mob.inp.Spincirclewheel,'unbind_', arguments);
 	},
 	getZclass: function () {
 		return this._zclass != null ? this._zclass: "z-spinwheel";

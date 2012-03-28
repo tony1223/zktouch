@@ -1,4 +1,6 @@
 
+
 zk.afterMount(function(){
-	$.mobile.initializePage();
+	jq("body > script").remove();
+	jq.mobile.initializePage();
 })

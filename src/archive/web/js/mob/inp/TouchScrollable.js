@@ -17,19 +17,23 @@ mob.inp.TouchScrollable = zk.$extends(zk.Object,{
 		this.opts = opts;
 		this.control = control;
 		this.node = node;
-		
-		jq(node).bind("onTouchstart.touchable", this.proxy(this._doTouchStart))
-				.bind("onTouchmove.touchable", this.proxy(this._doTouchMove))
-				.bind("onTouchend.touchable", this.proxy(this._doTouchEnd));
+		zk.log(node);
+		jq(node).bind("touchstart",function(){
+			zk.log("touch",node);
+		});
+		jq(node).bind("touchstart.touchable", this.proxy(this._doTouchStart))
+				.bind("touchmove.touchable", this.proxy(this._doTouchMove))
+				.bind("touchend.touchable", this.proxy(this._doTouchEnd));
 	},
 	_getFirstTouch: function (e){
 		return e.domEvent.originalEvent.targetTouches[0];
 	},	
 	getTouchEvt_: function (e){
 		return e.domEvent.originalEvent;
-	}
+	},
 	_doTouchStart: function (e){
-		if(this.opts.beforeTouchStart instanceof function){
+		zk.log("start");
+		if(this.opts.beforeTouchStart instanceof Function){
 			var res = this.opts.beforeTouchStart(this.control );
 			if(res === false ) return false;
 		}
@@ -104,9 +108,9 @@ mob.inp.TouchScrollable = zk.$extends(zk.Object,{
 		}
 	},		
 	destroy: function () {
-		jq(node).unbind("onTouchstart.touchable")
-				.unbind("onTouchmove.touchable")
-				.unbind("onTouchend.touchable");
+		jq(node).unbind("touchstart.touchable")
+				.unbind("touchmove.touchable")
+				.unbind("touchend.touchable");
 	}
 });
 

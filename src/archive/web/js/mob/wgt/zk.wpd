@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="mob.wgt" language="xul/html" depends="mob">
+	<widget name="Div" />
+</package>
+

@@ -1,0 +1,7 @@
+<zk >
+ 
+	<slot>
+		<spinwheel start="1900" end="2200" />
+	</slot>
+
+</zk>
