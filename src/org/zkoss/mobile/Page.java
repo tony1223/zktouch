@@ -13,12 +13,15 @@ public class Page extends JQueryMobileElement implements IdSpace {
 	private static final long serialVersionUID = -2775407902338585366L;
 
 	private Boolean active = true;
+	private String title;
+	
 	
 	protected void renderProperties(ContentRenderer renderer)
 			throws IOException {
 		super.renderProperties(renderer);
 		
 		render(renderer,"active",active);
+		render(renderer,"title",title);
 		
 	}
 	
@@ -41,5 +44,19 @@ public class Page extends JQueryMobileElement implements IdSpace {
 			this.active = active;
 			smartUpdate("active",active);
 		}
+	}
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

@@ -15,7 +15,7 @@ mob.sel.Listbox = zk.$extends(mob.Widget, {
 		this.$supers(mob.sel.Listbox,'bind_', arguments);
 		var wgt= this,ary = [];
 		jq(this.$n()).delegate("a.ui-link-inherit","click.listbox",function(e){
-			wgt.doSelectListem_.apply(wgt,[e,this]); //Note this is the delegated target
+			return wgt.doSelectListem_.apply(wgt,[e,this]); //Note this is the delegated target
 		});
 	},
 	bindChildren_: function(){
@@ -38,6 +38,11 @@ mob.sel.Listbox = zk.$extends(mob.Widget, {
 				});
 				if(this.isListen("onSelect")){
 					return false;
+				}else{
+					if(wid._href ){
+						self.location = wid._href ; //FIXME review this
+						return false;
+					}
 				}
 			}
 		}

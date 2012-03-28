@@ -1261,7 +1261,7 @@ $.widget( "mobile.widget", {
 		focusClass: "ui-focus",
 
 		// Automatically handle clicks and form submissions through Ajax, when same-domain
-		ajaxEnabled: true,
+		ajaxEnabled: false,//POTIX TONYQ
 
 		// Automatically load and show pages based on location.hash
 		hashListeningEnabled: true,
@@ -1301,7 +1301,7 @@ $.widget( "mobile.widget", {
 		pageLoadErrorMessageTheme: "e",
 
 		//automatically initialize the DOM when it's ready
-		autoInitializePage: false,
+		autoInitializePage: false, //POTIX TONYQ
 
 		pushStateEnabled: true,
 

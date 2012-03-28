@@ -1,6 +1,6 @@
 
 
 zk.afterMount(function(){
-	jq("body > script").remove();
-	jq.mobile.initializePage();
+	jq("body > script").remove(); //ZK-991 workaround 
+	jq.mobile.initializePage(); 
 })

@@ -5,8 +5,16 @@ mob.Page = zk.$extends(mob.Widget,{
 		theme:'c'
 	},
 	$define:{
+		title: function(){
+			if(this.desktop && this._active){
+				document.title = this._title;
+			}
+		},
 		active: function(val){
 			if(this.desktop){
+				if( this._title ){
+					document.title = this._title;
+				}
 				if(val){
 					jq(this.$n()).addClass("ui-page-active");
 				}else{
@@ -30,6 +38,9 @@ mob.Page = zk.$extends(mob.Widget,{
 	},
 	bind_: function () {
 		this.$supers(mob.Page ,'bind_', arguments);
+		if(this.desktop && this._active && this._title ){
+			document.title = this._title;
+		}		
 	},	
 	domClass_: function(){
 		var sup = this.$supers(mob.Page,'domClass_', arguments);

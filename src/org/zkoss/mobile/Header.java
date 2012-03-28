@@ -32,6 +32,7 @@ public class Header extends JQueryMobileElement {
 	/**
 	 * @param header
 	 *            the header to set
+	 * FIXME change to "label" instead.
 	 */
 	public void setCaption(String caption) {
 

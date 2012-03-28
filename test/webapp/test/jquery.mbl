@@ -12,7 +12,7 @@
 		
  		<listbox model="${list}"  theme="a" onSelect='test2.setActive(true);test1.setActive(false);'>
  			<template name="model" >
- 				<m:listitem divider="${each =='title' }">
+ 				<m:listitem divider="${each =='Categorys' }">
  					<h:div>
 						<zul:label value="${each}" />
 					</h:div>

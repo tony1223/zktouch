@@ -1,0 +1,29 @@
+<zk xmlns:m="http://www.zkoss.org/2012/mobile" 
+	xmlns:zul="zul" xmlns:h="html" xmlns:w="client" >
+
+	<style>
+		.categorys .z-label{
+			font-weight:bold;
+			font-size:16px;
+		}
+	</style>
+	<m:page active="true" apply="composer.ListDiscussionComposer" title="ZK Forum Mobile">
+		<m:header caption="ZK Category " theme="b" >
+			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
+		</m:header>
+ 		<m:listbox id="listbox" class="discussions" model="${list}"  theme="a" >
+ 			<template name="model" >
+ 				<m:listitem >
+ 					<m:div class="ui-grid-b">
+						<div class="ui-block-a">${each.author}</div>
+						<div class="ui-block-b">${each.title}</div>
+					</m:div>
+					<m:div class="content" >
+						
+					</m:div>
+ 				</m:listitem> 				
+ 			</template>
+ 		</m:listbox>
+ 		<m:footer theme="b" caption="Power by ZK Touch" />
+ 	</m:page>
+</zk>
