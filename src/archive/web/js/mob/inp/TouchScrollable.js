@@ -10,8 +10,15 @@ mob.inp.TouchScrollable = zk.$extends(zk.Object,{
     _scrollTimes: 0,
     /* for touch momentum end*/	
 	$init: function (control, node, opts) {
-		
+		node = node || control.$n();
 		opts = zk.$default(opts, {
+			getPosition: function(){
+				return node.scrollTop;
+			},
+			moveTo_: function(y){
+				jq(node).scrollTop(y);
+			}
+			//fixSelectedItemViewIndex
 		});
 		
 		this.opts = opts;
@@ -25,11 +32,16 @@ mob.inp.TouchScrollable = zk.$extends(zk.Object,{
 				.bind("touchmove.touchable", this.proxy(this._doTouchMove))
 				.bind("touchend.touchable", this.proxy(this._doTouchEnd));
 	},
+	_getNativeEvent:function(e){
+		var e = (e.domEvent || e ); //ZK event
+		e = (e.originalEvent || e) ;  // jQ event 
+		return e;
+	},
 	_getFirstTouch: function (e){
-		return e.domEvent.originalEvent.targetTouches[0];
+		return this._getNativeEvent(e).targetTouches[0];
 	},	
 	getTouchEvt_: function (e){
-		return e.domEvent.originalEvent;
+		return this._getNativeEvent(e);
 	},
 	_doTouchStart: function (e){
 		zk.log("start");
@@ -85,7 +97,7 @@ mob.inp.TouchScrollable = zk.$extends(zk.Object,{
 			this.proxy(function(){
 				this._countSpeed();
 				if(this._scrollV != 0 ){
-					this.opts.moveTo_(this.getPosition() + this._scrollV, true);
+					this.opts.moveTo_(this.opts.getPosition() + this._scrollV, true);
 				}else{
 					this._endMomentum(true);
 				}
@@ -96,8 +108,8 @@ mob.inp.TouchScrollable = zk.$extends(zk.Object,{
 		if( this._timer ){
 			window.clearInterval(this._timer);
 			this._timer = null;
-			if(fixIndex == true){
-				this.opts._fixSelectedItemViewIndex();
+			if(fixIndex == true && this.opts.fixSelectedItemViewIndex){
+				this.opts.fixSelectedItemViewIndex();
 			}
 		}
 	},

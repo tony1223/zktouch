@@ -6,19 +6,36 @@
 			font-weight:bold;
 			font-size:16px;
 		}
+		.ui-btn-text{
+			white-space:normal;
+		}
+		.info .title , .info .author{
+			float:left;
+		}
+		.info .title{
+			width:80%;
+		    white-space: normal;
+		}
+		.author{
+			width:20%;
+			text-align:center;
+		}
 	</style>
 	<m:page active="true" apply="composer.IndexComposer" title="ZK Forum Mobile">
-		<m:header caption="ZK Forum - Categorys" theme="b" />
- 		<m:listbox id="listbox" class="categorys" model="${list}"  theme="a" >
+		<m:header caption="ZK Forum" theme="b" >
+			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
+			<h:a href="search.mbl" data-icon="search" data-iconpos="notext"  date-direction="right" data-rel="dialog" data-transition="fade">Search</h:a>
+		</m:header>
+ 		<m:listbox id="listbox" class="categorys" theme="c" >
  			<template name="model" >
  				<m:listitem href="category.mbl?category=${each.id}">
- 					<m:div class="ui-grid-b">
-						<div class="ui-block-a">${each.name}</div>
-						<div class="ui-block-b">Discussions:	${each.threads}</div>
-					</m:div>
+					<m:div class="info">
+						<div class="title">${each.name}</div>
+						<div class="author">${each.threads}</div>
+					</m:div>					
  				</m:listitem> 				
  			</template>
  		</m:listbox>
- 		<m:footer theme="b" caption="Power by ZK Touch" />
+ 		<m:footer theme="b" caption="Powered by ZK Touch" />
  	</m:page>
 </zk>

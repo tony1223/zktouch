@@ -1,59 +1,34 @@
 <zk xmlns:zul="zul">
-<!--
  	<style>
  		.container{
  			height:300px;
  			width:500px;
- 			overflow:hidden;
+ 			overflow:scroll;
  			border:1px solid red;
  		}
  		.content{
- 			height:1000px;
- 			padding-top:200px;
  			background:green;
+ 			color:white;
  		}
  	</style>
- 	-->
-	<div class="container" style="width:500px;height:400px;background:red;cursor:pointer;" >
+	<div class="container" >
 		<div class="content">
-			this is the content;
-										
 		</div>
 	</div>
 	<zul:button id="but" label="XXXXXXXXXX" /> 		
-	<zul:script>
+	<zul:script><![CDATA[
 	var ind= 0 ;
 	zk.afterMount(function(){
+		var con = jq(".content");
+		for(var i = 0 ; i < 1000 ; ++i ){
+			con.append("<p>"+i+"</p>");
+		}
+	
 		ind++;
-	/*
 		zk.load("mob.inp",function(){
 			new mob.inp.TouchScrollable(null,jq(".container")[0],null);
-		
 		});
-	*/
-	zk.log(jq(".zk-mount-script").size());
-		zk.log("bind");
-		window.test= jq("$but")[0];
-		zk.log("test3",window.test);
-		var error = new Error();
-		if(ind == 2){
-			var asdasdsadasd=sdadasd;
-		}
-		jq("$but").bind("click",  function(){
-		 	zk.log("hi");
-		});
-		jq(".container").bind("touchstart",function(e){
-			
-			var data = [] ,par= e.target;
-			jq(e.target).css("background","yellow");
-			data.push(e.target.id);
-			while(par = par.parentNode){
-				data.push(par.id);
-			}
-			zk.log("body start",e.target,data.join("> "));
-			
-			return false;
-		});
+		jq(".container")[0].scrollTop = 50;
 	});
-	</zul:script>
+	]]></zul:script>
 </zk>

@@ -1,0 +1,37 @@
+<zk xmlns:m="http://www.zkoss.org/2012/mobile" 
+	xmlns:zul="zul" xmlns:h="html" xmlns:w="client" >
+
+	<style>
+		.categorys .z-label{
+			font-weight:bold;
+			font-size:16px;
+		}
+	</style>
+	<m:page active="true"  title="ZK Forum Search">
+		<m:header caption="Search" theme="b" >
+			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
+			<h:a href="search.mbl" data-icon="search" data-iconpos="notext"  date-direction="right" data-rel="dialog" data-transition="fade">Search</h:a>
+		</m:header>
+		<zul:vlayout>
+			<h:h2>
+				Begin Date
+			</h:h2>
+			<slot>
+				<spincirclewheel start="2001" end="2012" />
+				<spincirclewheel start="1" end="12" />
+				<spincirclewheel start="1" end="31" />
+			</slot>
+			<h:h2>
+				End date
+			</h:h2>
+			<slot>
+				<spincirclewheel start="2001" end="2012" />
+				<spincirclewheel start="1" end="12" />
+				<spincirclewheel start="1" end="31" />
+			</slot>
+			
+			<zul:button label="Search" href="category.mbl?category=1" />			
+		</zul:vlayout>
+ 		<m:footer theme="b" caption="Powered by ZK Touch" />
+ 	</m:page>
+</zk>

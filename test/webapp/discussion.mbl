@@ -1,7 +1,9 @@
 <zk xmlns:m="http://www.zkoss.org/2012/mobile" 
 	xmlns:zul="zul" xmlns:h="html" xmlns:w="client" >
-
 	<style>
+		.zm-listbox .ui-icon-arrow-r{
+			display:none;
+		}
 		.categorys .z-label{
 			font-weight:bold;
 			font-size:16px;
@@ -15,18 +17,21 @@
 		.author{
 			width:20%;
 		}
+		.row-type2{
+			background:#EEEEEE;
+		}
 	</style>
-	<m:page active="true" apply="composer.ListDiscussionComposer" title="ZK Forum Mobile">
-		<m:header caption="ZK Category " theme="b" >
+	<m:page active="true" apply="composer.ListCommentComposer" title="ZK Forum Mobile">
+		<m:header caption="Discussion " theme="b" >
 			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
 			<h:a href="search.mbl" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</h:a>
 		</m:header>
- 		<m:listbox id="listbox" class="discussions" theme="c"  >
+ 		<m:listbox id="listbox" class="comments"  theme="c" >
  			<template name="model" >
- 				<m:listitem href="discussion.mbl?id=${each.id}">
+ 				<m:listitem  class="${ forEachStatus.index %2 == 0 ? 'row-type1':'row-type2'}" >
  					<m:div class="info">
-						<div class="title">${each.title}</div>
-						<div class="author">${each.author}</div>
+						<div class="title">${each.content}</div>
+						<div class="author">${each.poster}</div>
 					</m:div>
  				</m:listitem> 				
  			</template>

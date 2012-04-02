@@ -14,7 +14,7 @@
 		</div>
 	</div>
 	
-	<script src="lib/jquery-1.7.2.min.js"></script>
+	<script src="../lib/jquery-1.7.2.min.js"></script>
 	<script>
 		$(".container").bind("click",function(e){
 			
