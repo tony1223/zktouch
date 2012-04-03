@@ -24,10 +24,6 @@ mob.inp.TouchScrollable = zk.$extends(zk.Object,{
 		this.opts = opts;
 		this.control = control;
 		this.node = node;
-		zk.log(node);
-		jq(node).bind("touchstart",function(){
-			zk.log("touch",node);
-		});
 		jq(node).bind("touchstart.touchable", this.proxy(this._doTouchStart))
 				.bind("touchmove.touchable", this.proxy(this._doTouchMove))
 				.bind("touchend.touchable", this.proxy(this._doTouchEnd));
@@ -43,20 +39,21 @@ mob.inp.TouchScrollable = zk.$extends(zk.Object,{
 	getTouchEvt_: function (e){
 		return this._getNativeEvent(e);
 	},
-	_doTouchStart: function (e){
-		zk.log("start");
+	_doStartScroll:function (e,y){
 		if(this.opts.beforeTouchStart instanceof Function){
 			var res = this.opts.beforeTouchStart(this.control );
 			if(res === false ) return false;
 		}
 		this._endMomentum(false);
-		this._startY = this._getFirstTouch(e).pageY;
+		this._startY = y;
 		this._startScrollY = this.opts.getPosition();
 		e.stop();
 		//clear old objects and assign new
 		this._lastplist = [{y:this.opts.getPosition(), t:new Date().getTime()}];
-		this._scrollTimes = 0 ;
-	
+		this._scrollTimes = 0 ;		
+	},
+	_doTouchStart: function (e){
+		this._doStartScroll(e,this._getFirstTouch(e).pageY);
 	},
 	_doTouchMove: function (e){
 		var y = this._startScrollY  - (this._getFirstTouch(e).pageY - this._startY)  ; 
