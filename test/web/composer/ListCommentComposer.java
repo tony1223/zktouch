@@ -35,7 +35,7 @@ public class ListCommentComposer extends SelectorComposer<Component> {
 //			return ;
 //		}
 //		
-		header.setCaption("Discussion - ZK6, MVVM and Include.setSrc() question ");
+		header.setLabel("Discussion - ZK6, MVVM and Include.setSrc() question ");
 		
 		ListModelList<Comment> list = new ListModelList<Comment>();
 		Date d =  new Date();

@@ -9,13 +9,13 @@ public class Header extends JQueryMobileElement {
 
 	private static final long serialVersionUID = -2775407902338585366L;
 
-	private String _caption;
+	private String _label;
 
 	protected void renderProperties(ContentRenderer renderer)
 			throws IOException {
 		super.renderProperties(renderer);
 
-		render(renderer, "caption", _caption);
+		render(renderer, "label", _label);
 	}
 
 	public String getZclass() {
@@ -25,20 +25,19 @@ public class Header extends JQueryMobileElement {
 	/**
 	 * @return the header
 	 */
-	public String getCaption() {
-		return _caption;
+	public String getLabel() {
+		return _label;
 	}
 
 	/**
 	 * @param header
 	 *            the header to set
-	 * FIXME change to "label" instead.
 	 */
-	public void setCaption(String caption) {
+	public void setLabel(String label) {
 
-		if (!Objects.equals(this._caption, caption)) {
-			this._caption = caption;
-			smartUpdate("caption", _caption);
+		if (!Objects.equals(this._label,label)) {
+			this._label = label;
+			smartUpdate("caption", _label);
 		}
 	}
 }

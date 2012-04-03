@@ -8,7 +8,7 @@
 		}
 	</style>
 	<m:view active="true"  title="ZK Forum Search">
-		<m:header caption="Search" theme="b" >
+		<m:header label="Search" theme="b" >
 			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
 			<h:a href="search.mbl" data-icon="search" data-iconpos="notext"  date-direction="right" data-rel="dialog" data-transition="fade">Search</h:a>
 		</m:header>
@@ -32,6 +32,6 @@
 			
 			<zul:button label="Search" href="category.mbl?category=1" />			
 		</zul:vlayout>
- 		<m:footer theme="b" caption="Powered by ZK Touch" />
+ 		<m:footer theme="b" label="Powered by ZK Touch" />
  	</m:view>
 </zk>

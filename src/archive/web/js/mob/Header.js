@@ -3,13 +3,13 @@ mob.Header = zk.$extends(mob.Widget,{
 		role:'header'
 	},
 	$define:{
-		caption:null
+		label:null
 	},
 	redraw: function(out){
 		out.push('<div ',this.domAttrs_(),' >');
 		
-		if(this._caption){//FIXME handling escaping
-			out.push('<h1> ' , this._caption , ' </h1>');
+		if(this._label){//FIXME handling escaping
+			out.push('<h1> ' , this._label , ' </h1>');
 		}
 		this.eachChild(function(index,child){ 
 			this.redraw(out);

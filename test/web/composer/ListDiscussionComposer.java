@@ -34,7 +34,7 @@ public class ListDiscussionComposer extends SelectorComposer<Component> {
 			return ;
 		}
 		
-		header.setCaption("ZK Forum - " + category.getName() + "");
+		header.setLabel("ZK Forum - " + category.getName() + "");
 		
 		DiscussionDao dao = new DiscussionDao();
 		listbox.setModel(new ListModelList<Discussion>(dao.getDiscussions(category.getId())));
