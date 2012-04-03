@@ -7,7 +7,7 @@
 			font-size:16px;
 		}
 	</style>
-	<m:page active="true"  title="ZK Forum Search">
+	<m:view active="true"  title="ZK Forum Search">
 		<m:header caption="Search" theme="b" >
 			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
 			<h:a href="search.mbl" data-icon="search" data-iconpos="notext"  date-direction="right" data-rel="dialog" data-transition="fade">Search</h:a>
@@ -33,5 +33,5 @@
 			<zul:button label="Search" href="category.mbl?category=1" />			
 		</zul:vlayout>
  		<m:footer theme="b" caption="Powered by ZK Touch" />
- 	</m:page>
+ 	</m:view>
 </zk>

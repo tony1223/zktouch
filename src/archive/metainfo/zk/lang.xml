@@ -40,9 +40,9 @@
 	
 	<!-- global -->
 	<component>
-		<component-name>page</component-name> <!-- required -->
-		<component-class>org.zkoss.mobile.Page</component-class> <!-- required -->
-		<widget-class>mob.Page</widget-class> <!-- required -->
+		<component-name>view</component-name> <!-- required -->
+		<component-class>org.zkoss.mobile.View</component-class> <!-- required -->
+		<widget-class>mob.View</widget-class> <!-- required -->
 	</component>
 	<component>
 		<component-name>style</component-name>

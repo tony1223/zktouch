@@ -1,4 +1,4 @@
-mob.Page = zk.$extends(mob.Widget,{
+mob.View = zk.$extends(mob.Widget,{
 	_active: true,
 	_datas:{
 		role:'page',
@@ -34,16 +34,16 @@ mob.Page = zk.$extends(mob.Widget,{
 		if(!$.data(this.$n(),"page")){
 			$.data( this.$n(), "page", new $.mobile.page( null, this.$n() ) );
 		}		
-		this.$supers(mob.Page ,'bindChildren_', arguments);
+		this.$supers(mob.View ,'bindChildren_', arguments);
 	},
 	bind_: function () {
-		this.$supers(mob.Page ,'bind_', arguments);
+		this.$supers(mob.View ,'bind_', arguments);
 		if(this.desktop && this._active && this._title ){
 			document.title = this._title;
 		}		
 	},	
 	domClass_: function(){
-		var sup = this.$supers(mob.Page,'domClass_', arguments);
+		var sup = this.$supers(mob.View,'domClass_', arguments);
 		
 		if(!this._active) {
 			return sup ;

@@ -21,7 +21,7 @@
 			text-align:center;
 		}
 	</style>
-	<m:page active="true" apply="composer.IndexComposer" title="ZK Forum Mobile">
+	<m:view active="true" apply="composer.IndexComposer" title="ZK Forum Mobile">
 		<m:header caption="ZK Forum" theme="b" >
 			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
 			<h:a href="search.mbl" data-icon="search" data-iconpos="notext"  date-direction="right" data-rel="dialog" data-transition="fade">Search</h:a>
@@ -37,5 +37,5 @@
  			</template>
  		</m:listbox>
  		<m:footer theme="b" caption="Powered by ZK Touch" />
- 	</m:page>
+ 	</m:view>
 </zk>

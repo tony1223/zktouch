@@ -8,7 +8,7 @@ import org.zkoss.zk.ui.sys.ContentRenderer;
 
 
 
-public class Page extends JQueryMobileElement implements IdSpace {
+public class View extends JQueryMobileElement implements IdSpace {
 	
 	private static final long serialVersionUID = -2775407902338585366L;
 

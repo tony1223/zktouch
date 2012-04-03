@@ -16,7 +16,7 @@
 			width:20%;
 		}
 	</style>
-	<m:page active="true" apply="composer.ListDiscussionComposer" title="ZK Forum Mobile">
+	<m:view active="true" apply="composer.ListDiscussionComposer" title="ZK Forum Mobile">
 		<m:header caption="ZK Category " theme="b" >
 			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
 			<h:a href="search.mbl" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</h:a>
@@ -32,5 +32,5 @@
  			</template>
  		</m:listbox>
  		<m:footer theme="b" caption="Powered by ZK Touch" />
- 	</m:page>
+ 	</m:view>
 </zk>
