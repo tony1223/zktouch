@@ -2,5 +2,6 @@
 
 <package name="mob.wgt" language="xul/html" depends="mob">
 	<widget name="Div" />
+	<widget name="Hr" />
 </package>
 

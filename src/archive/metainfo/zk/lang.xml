@@ -54,16 +54,6 @@
 			<mold-uri>mold/style.js</mold-uri>
 		</mold>
 	</component>	
-	<component>
-		<component-name>div</component-name>
-		<component-class>org.zkoss.mobile.Div</component-class>
-		<widget-class>mob.wgt.Div</widget-class>
-		<mold>
-			<mold-name>default</mold-name>
-			<mold-uri>mold/div.js</mold-uri>
-		</mold>
-		<preserve-blank/>
-	</component>
 	<!--  -->
 	
 	<!-- page elements -->
@@ -79,6 +69,38 @@
 		<widget-class>mob.Footer</widget-class> <!-- required -->
 	</component>	
 		
+	<!-- wgt package -->
+	<component>
+		<component-name>div</component-name>
+		<component-class>org.zkoss.mobile.Div</component-class>
+		<widget-class>mob.wgt.Div</widget-class>
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/div.js</mold-uri>
+		</mold>
+		<preserve-blank/>
+	</component>
+	<component>
+		<component-name>hr</component-name>
+		<component-class>org.zkoss.mobile.Hr</component-class>
+		<widget-class>mob.wgt.Hr</widget-class>
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/hr.js</mold-uri>
+		</mold>
+		<preserve-blank/>
+	</component>	
+	<component>
+		<component-name>button</component-name>
+		<component-class>org.zkoss.mobile.Button</component-class>
+		<widget-class>mob.inp.Button</widget-class>
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/button.js</mold-uri>
+		</mold>
+		<preserve-blank/>
+	</component>	
+	
 	<!-- sel package -->
 	<component>
 		<component-name>listbox</component-name> <!-- required -->

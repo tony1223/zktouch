@@ -3,7 +3,9 @@ mob.Header = zk.$extends(mob.Widget,{
 		role:'header'
 	},
 	$define:{
-		label:null
+		label:function(){
+			this.rerender();
+		}
 	},
 	redraw: function(out){
 		out.push('<div ',this.domAttrs_(),' >');

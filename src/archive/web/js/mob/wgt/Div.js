@@ -5,9 +5,9 @@
 	Description:
 		
 	History:
-		Sun Oct  5 00:20:23     2008, Created by tomyeh
+		Tue Apr  3 18:37:23     2012, Created by tonyq
 
-Copyright (C) 2008 Potix Corporation. All Rights Reserved.
+Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 
 	This program is distributed under LGPL Version 2.1 in the hope that
 	it will be useful, but WITHOUT ANY WARRANTY.

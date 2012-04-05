@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <package name="mob.inp" language="xul/html" depends="mob">
+	<widget name="FormWidget" />
+	<widget name="Button" />
+	
 	<widget name="Slot" />
 	<widget name="Spinwheel" />
 	<widget name="Spincirclewheel" />

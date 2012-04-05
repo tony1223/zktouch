@@ -1,0 +1,18 @@
+<zk xmlns:m="http://www.zkoss.org/2012/mobile" 
+	xmlns:zul="zul" xmlns:h="html" xmlns:w="client" >
+
+	<m:view active="true" title="ZK Forum Mobile">
+		<m:header label="ZK Forum" theme="b" >
+			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
+			<h:a href="search.mbl" data-icon="search" data-iconpos="notext"  date-direction="right" data-rel="dialog" data-transition="fade">Search</h:a>
+		</m:header>
+		<m:button label="test" href="search.mbl" />
+		<m:button label="testOnClick" href="search.mbl" onClick='alert("hi")' />
+		<m:button label="test" href="search.mbl" mini="true" />
+		<m:hr />
+		<m:button label="test inline" href="search.mbl" inline="true" />
+		<m:button label="test inline2" href="search.mbl" inline="true" />
+		<m:button label="test inline3 longer" href="search.mbl" inline="true" onClick="" />
+ 		<m:footer theme="b" label="Powered by ZK Touch" />
+ 	</m:view>
+</zk>

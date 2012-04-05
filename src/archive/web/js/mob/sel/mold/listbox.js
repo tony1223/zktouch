@@ -4,9 +4,7 @@ function (out) {
 
 	out.push('<ul ', this.domAttrs_(), ' >');
 	
-	this.eachChild(function(index,child){ 
-		this.redraw(out);
-	});
+	this.redrawChildren(out);
 	
 	out.push('</ul>');
 }

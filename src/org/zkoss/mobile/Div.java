@@ -30,7 +30,7 @@ import org.zkoss.zul.impl.XulElement;
  *
  * @author tomyeh
  */
-public class Div extends XulElement {
+public class Div extends MobileElement {
 	private static final long serialVersionUID = 8032044902725737099L;
 	
 	private String _align;
