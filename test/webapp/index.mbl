@@ -26,8 +26,6 @@
 			<h:a href="index.mbl" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</h:a>
 			<h:a href="search.mbl" data-icon="search" data-iconpos="notext"  date-direction="right" data-rel="dialog" data-transition="fade">Search</h:a>
 		</m:header>
-		<m:button label="test" href="search.mbl" />
-		<m:button label="testOnClick" href="search.mbl" onClick='alert("hi")' />
  		<m:listbox id="listbox" class="categorys" theme="c" >
  			<template name="model" >
  				<m:listitem href="category.mbl?category=${each.id}">
